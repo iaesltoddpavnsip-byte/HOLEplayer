@@ -1,0 +1,36 @@
+{
+  "name": "blackhole-player",
+  "version": "1.0.0",
+  "description": "Музыкальный плеер «Чёрная дыра»",
+  "main": "main.js",
+  "author": "BlackHole",
+  "scripts": {
+    "start": "electron .",
+    "build:exe": "electron-builder --win portable",
+    "prep:www": "node -e \"require('fs').mkdirSync('www',{recursive:true});require('fs').copyFileSync('index.html','www/index.html')\""
+  },
+  "build": {
+    "appId": "com.blackhole.player",
+    "productName": "BlackHolePlayer",
+    "win": {
+      "target": "portable",
+      "artifactName": "BlackHolePlayer.exe",
+      "icon": "icon.ico"
+    },
+    "files": [
+      "main.js",
+      "index.html",
+      "icon.png",
+      "package.json"
+    ]
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.1.0",
+    "@capacitor/core": "^6.1.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.1.0",
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0"
+  }
+}
